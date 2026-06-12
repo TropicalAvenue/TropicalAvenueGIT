@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tropical Avenue | Swimwear Boutique</title>
+  <meta name="description" content="Tropical Avenue, boutique premium de trajes de baño con promoción especial a $12.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <nav class="navbar" aria-label="Navegacion principal">
+      <a class="brand" href="#inicio" aria-label="Tropical Avenue inicio">
+        <span class="brand-mark"><img src="TropicalAvenueLOGO.png" alt=""></span>
+        <span>Tropical Avenue</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="#promo">Promocion</a>
+        <a href="#catalogo">Catalogo</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <button class="cart-fab" type="button" aria-label="Abrir carrito">
+        <span class="cart-icon" aria-hidden="true">⌁</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Barra de redes socailes. -->
+  <aside class="social-sidebar" aria-label="Redes sociales">
+    <a href="https://www.instagram.com/tropicalavenue.sv/" target="_blank" rel="noopener" aria-label="Instagram Tropical Avenue">IG</a>
+    <a href="https://www.facebook.com/profile.php?id=61560149069294" target="_blank" rel="noopener" aria-label="Facebook Tropical Avenue">FB</a>
+  </aside>
+
+  <main>
+    <!-- editorial con la promocion principal del lanzamiento. -->
+    <section class="hero" id="promo">
+      <div class="hero-media" role="img" aria-label="Trajes de bano tropicales junto a una playa"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Drop de verano</p>
+        <h1>Tropical Avenue</h1>
+        <p class="hero-offer">A partir del <strong>15 de junio</strong><br>todos los trajes de bano a <strong>$12</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogo">Ver catalogo</a>
+          <a class="btn btn-ghost" href="#contacto">Redes sociales</a>
+        </div>
+      </div>
+      <div class="promo-card" aria-label="Promocion principal">
+        <span>Precio unico</span>
+        <strong>$12.00</strong>
+      </div>
+    </section>
+
+    <section class="intro-band">
+      <div>
+        <p class="eyebrow">Boutique minimalista</p>
+        <h2>Silhuetas limpias, tonos tropicales y piezas listas para playa.</h2>
+      </div>
+      <p>Seleccion curada de trajes de bano de dos piezas con tallas XS a L, pensada para comprar rapido y confirmar tu pedido por WhatsApp.</p>
+      <p>Envios a todo El Salvador por medio de encomendista 1$ costo del envio. Pedidos confirmados por WhatsApp.</p>
+      <p class="texto-envio">
+        (Los envíos personalizados tendrán un costo adicional dependiendo de la complejidad del pedido, se confirmará el costo por WhatsApp antes de finalizar tu compra).
+      </p>
+    </section>
+
+    <!-- Catalogo en script.js para centralizar y orden de botones. -->
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <p class="eyebrow">Catalogo</p>
+        <h2>Swimwear edit</h2>
+      </div>
+
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div>
+      <strong>Tropical Avenue</strong>
+      <p>Beachwear boutique. Pedidos confirmados por WhatsApp.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/tropicalavenue.sv/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61560149069294" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Carrito y checkout se mantiene en la misma experiencia sin cambiar de pagina. -->
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow">Tu seleccion</p>
+        <h2 id="cartTitle">Carrito</h2>
+      </div>
+      <button class="icon-button" type="button" id="closeCart" aria-label="Cerrar carrito">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-summary">
+      <div>
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <div>
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+    </div>
+
+    <button class="btn btn-primary checkout-toggle" type="button" id="checkoutToggle">Proceder al pago</button>
+
+    <form class="checkout-form" id="checkoutForm" novalidate>
+      <h3>Datos de envio</h3>
+      <div class="form-grid">
+        <label>Nombre
+          <input type="text" name="nombre" autocomplete="given-name" required>
+        </label>
+        <label>Apellido
+          <input type="text" name="apellido" autocomplete="family-name" required>
+        </label>
+        <label>Numero telefonico
+          <input type="tel" name="telefono" autocomplete="tel" required>
+        </label>
+        <label>Correo electronico
+          <input type="email" name="correo" autocomplete="email" required>
+        </label>
+        <label>Ciudad
+          <input type="text" name="ciudad" autocomplete="address-level2" required>
+        </label>
+        <label>Departamento
+          <input type="text" name="departamento" autocomplete="address-level1" required>
+        </label>
+        <label class="full-field">Direccion exacta (calle, numero de casa, referencia). Si tu direccion es personalizada, por favor escribela aqui. Envios personalizados por costo adicional.
+          <textarea name="direccion" rows="3" autocomplete="street-address" required></textarea>
+        </label>
+      </div>
+      <p class="form-error" id="formError" role="alert"></p>
+      <button class="btn btn-dark" type="submit">Confirmar pedido por WhatsApp</button>
+    </form>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
