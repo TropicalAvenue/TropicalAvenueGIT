@@ -137,11 +137,6 @@ const products = [
     images: ["TrajesdeBano/Traje011.png", "TrajesdeBano/Traje012.png"]
   },
   {
-    id: "traje-negro", name: "26 Talla XS",
-    stock: 1,
-    images: ["TrajesdeBano/TrajeNegro1.png", "TrajesdeBano/TrajeNegro2.png"]
-  },
-  {
     id: "traje-rayas", name: "27 Talla L",
     stock: 1,
     images: ["TrajesdeBano/TrajeRayasN1.png", "TrajesdeBano/TrajeRayasN2.png"]
